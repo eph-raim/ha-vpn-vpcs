@@ -8,10 +8,31 @@ This guide will use the following VPC configuration for illustrative purposes:
 ![](fig01.png)
 
 
+## Create VPN_Monitor EC2 role in IAM
+you need to create an EC2 role that will grant the VPN instances permissions to take over routing in the event the other VPN instance fails. Create Custom Policy and enter the following Policy Document
+
+```
+{
+    "Statement": [
+        {
+            "Action": [
+                "ec2:ReplaceRoute",
+                "ec2:StartInstances",
+                "ec2:RebootInstances"
+            ],
+            "Effect": "Allow",
+            "Resource": "*"
+        }
+    ]
+}
+
+```
+
 ## To launch Amazon EC2 instances for VPN
 
 1. Launch four Amazon Linux instances, one in each VPC public subnet, with the following characteristics:
   1. Allocate four VPC EIPs and associate an EIP to each VPN instance.
+  * Select VPN_Monitor for IAM Role
 * Disable Source/Dest checking on both instances by right-clicking on the instances and selecting Change Source/Dest. Check.  
 * Configure Routing Tables in each VPC private subnet to send traffic to the "other" VPC through the VPC VPN instances. 
 
