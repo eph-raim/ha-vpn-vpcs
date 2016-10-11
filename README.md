@@ -131,7 +131,7 @@ you need to create an EC2 role that will grant the VPN instances permissions to 
   ```  
 
 ## Test VPN status
-1. Connect to VPN 1 and ping VPN 2 Instance
+1. Connect to VPN #1 and ping VPN #2 Instance
   ```  
   Prompt> ping 10.0.2.30
   
