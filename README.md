@@ -1,5 +1,5 @@
-# vpn-vpcs
-AWS cross-region VPC to VPC connection by SSH tunnel
+# ha-vpn-vpcs
+High availability AWS cross-region VPC to VPC connection by SSH tunnel
 
 ## Example VPC Setup
 
